@@ -12,45 +12,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productController = void 0;
+exports.clientController = void 0;
 const database_1 = __importDefault(require("../database"));
-class ProductController {
+class ClientController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const products = yield database_1.default.query('SELECT * FROM product');
+            const products = yield database_1.default.query('SELECT * FROM client');
             res.json(products);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const products = yield database_1.default.query('SELECT * FROM product WHERE product_id = ?', [id]);
+            const products = yield database_1.default.query('SELECT * FROM client WHERE client_id = ?', [id]);
             if (products.length > 0) {
                 return res.json(products[0]);
             }
             res.status(404).json({ text: 'product not found' });
         });
     }
-    create(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO product SET ?', [req.body]);
-            console.log(req.body);
-            res.json({ message: 'product saved' });
-        });
-    }
-    update(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('UPDATE product SET ? WHERE product_id = ?', [req.body, id]);
-            res.json({ message: 'product updated' });
-        });
-    }
-    delete(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('DELETE FROM product WHERE product_id = ?', [id]);
-            res.json({ message: 'product deleted' });
-        });
-    }
 }
-exports.productController = new ProductController();
+exports.clientController = new ClientController();

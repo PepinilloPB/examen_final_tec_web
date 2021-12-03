@@ -12,7 +12,8 @@ class LoginRoutes{
 
     config(): void{
         this.router.get('/', loginController.index);
-        this.router.post('/', loginController.signIn);
+        this.router.post('/client', loginController.signInClient);
+        this.router.post('/employee', loginController.signInEmployee);
     }
 }
 

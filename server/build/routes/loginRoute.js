@@ -9,7 +9,8 @@ class LoginRoutes {
     }
     config() {
         this.router.get('/', loginController_1.loginController.index);
-        this.router.post('/', loginController_1.loginController.signIn);
+        this.router.post('/client', loginController_1.loginController.signInClient);
+        this.router.post('/employee', loginController_1.loginController.signInEmployee);
     }
 }
 const loginRoutes = new LoginRoutes();

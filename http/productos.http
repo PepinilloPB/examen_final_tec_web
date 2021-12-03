@@ -25,11 +25,20 @@ Content-Type: application/json
 DELETE http://localhost:3000/api/product/6
 
 ###Acceder 
-POST http://localhost:3000/api/auth
+POST http://localhost:3000/api/auth/client
 Content-Type: application/json
 
 {
-    "user_name": "Eddy",
+    "user_name": "Eddy_Cliente",
+    "user_password": "12345"
+}
+
+###Acceder 
+POST http://localhost:3000/api/auth/employee
+Content-Type: application/json
+
+{
+    "user_name": "Eddy_Empleado",
     "user_password": "12345"
 }
 

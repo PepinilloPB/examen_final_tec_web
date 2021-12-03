@@ -5,7 +5,8 @@ import cors from 'cors';
 import productRoute from './routes/productRoute';
 import loginRoute from './routes/loginRoute';
 import cartRoute from './routes/cartRoute';
-import userRoute from './routes/userRoute';
+import clienteRoute from './routes/clienteRoute';
+import saleRoute from './routes/saleRoute';
 
 class Server{
 
@@ -29,7 +30,8 @@ class Server{
         this.app.use('/api/auth', loginRoute);
         this.app.use("/api/product", productRoute);
         this.app.use('/api/cart',cartRoute);
-        this.app.use('/api/users', userRoute);
+        this.app.use('/api/client', clienteRoute);
+        this.app.use('/api/sale', saleRoute);
     }
 
     start(): void{
